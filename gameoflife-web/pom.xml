@@ -70,6 +70,15 @@
                 </executions>
             </plugin>
         </plugins>
+       <plugins>
+        <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>3.0.0-M1</version>
+            <configuration>
+              <deployAtEnd>true</deployAtEnd>
+            </configuration>
+       </plugin>
+     </plugins
     </build>
     <profiles>
         <!-- Deprecated: needs to be migrated to the webtests module. -->
@@ -172,6 +181,17 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
         </dependency>
-
-    </dependencies>
-</project>
+     </dependencies>
+   <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-artifactory-releases</name>
+        <url>http://35.232.89.42:8081/artifactory/maven-release</url>
+    </repository>
+      <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-artifactory-snapshots</name>
+        <url>http://35.232.89.42:8081/artifactory/maven-snapshot</url>
+     </snapshotRepository>
+   </distributionManagement>
+  </project>
